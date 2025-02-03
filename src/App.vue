@@ -55,7 +55,7 @@ const open = ref(false);
 
             <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
               <button
-                class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
+                class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
                 type="button" @click="open = false">
                 Submit
               </button>
@@ -70,4 +70,15 @@ const open = ref(false);
       </div>
     </Dialog.Portal>
   </Dialog.Root>
+
+  <Editable.Root v-slot="{ isEditing }">
+    <Editable.Area :class="[isEditing ? 'bg-blue-50' : 'bg-white']">
+      <Editable.Preview />
+      <Editable.Input />
+    </Editable.Area>
+
+    <Editable.SubmitTrigger>
+      Submit
+    </Editable.SubmitTrigger>
+  </Editable.Root>
 </template>
