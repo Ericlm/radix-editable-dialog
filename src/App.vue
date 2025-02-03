@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Dialog } from 'radix-vue/namespaced';
+import { Dialog, Editable } from 'radix-vue/namespaced';
 import { ref } from 'vue';
 
 const open = ref(false);
@@ -37,6 +37,19 @@ const open = ref(false);
                     Dialog description, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, inventore.
                   </Dialog.Description>
                 </div>
+              </div>
+
+              <div>
+                <Editable.Root v-slot="{ isEditing }">
+                  <Editable.Area :class="[isEditing ? 'bg-blue-50' : 'bg-white']">
+                    <Editable.Preview />
+                    <Editable.Input />
+                  </Editable.Area>
+
+                  <Editable.SubmitTrigger>
+                    Submit
+                  </Editable.SubmitTrigger>
+                </Editable.Root>
               </div>
             </div>
 
